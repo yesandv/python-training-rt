@@ -1,12 +1,19 @@
-def calculate_time(road_time):
-    s = road_time // 2
-    h = s // 60
-    m = s % 60
-    st = f"{h} ч {m} м"
-    return st
+def calculate_sleep_time(road_time):
+    sleep_time = road_time // 2
+    hh = sleep_time // 60
+    mm = sleep_time % 60
+    return hh, mm
+
+
+def hh_mm_to_str(hh, mm):
+    if hh == 0:
+        return f'{mm} м'
+    else:
+        return f'{hh} ч {mm} м'
 
 
 if __name__ == "__main__":
     t = int(input())
-    s = calculate_time(t)
+    hh, mm = calculate_sleep_time(t)
+    s = hh_mm_to_str(hh, mm)
     print(s)

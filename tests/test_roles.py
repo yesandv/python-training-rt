@@ -1,11 +1,11 @@
-from modules.roles import role_list
+from modules.roles import role_list_to_str
 
 
 def test_role_list_1():
-    roles = role_list("Инженер", "Физик", "Ученный", ",")
-    assert roles == 'Who is John Galt?\nJohn Galt is:\nИнженер,Физик,Ученный'
+    roles_as_str = role_list_to_str("Инженер", "Физик", "Ученный", ",")
+    assert roles_as_str == 'Инженер,Физик,Ученный'
 
 
 def test_role_list_2():
-    roles = role_list("Политик", "Лидер", "Боец", " и ")
-    assert roles == 'Who is John Galt?\nJohn Galt is:\nПолитик и Лидер и Боец'
+    roles_as_str = role_list_to_str("Политик", "Лидер", "Боец", " и ")
+    assert roles_as_str == 'Политик и Лидер и Боец'

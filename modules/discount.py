@@ -13,12 +13,5 @@ def calculate_discount_on_geese(price, number_of_geese):
 if __name__ == "__main__":
     price = int(input())
     goose = int(input())
-
-    if 10 >= goose > 5:
-        discount = price * goose * 0.25
-        print(int(price * goose - discount))
-    elif goose > 10:
-        fin = price * goose // 2
-        print(fin)
-    else:
-        print(price * goose)
+    total = calculate_discount_on_geese(price, goose)
+    print(total)

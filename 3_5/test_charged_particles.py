@@ -1,4 +1,4 @@
-from modules.charged_particles import check_same_or_opposite_sign
+from charged_particles import check_same_or_opposite_sign
 
 
 def test_check_same_or_opposite_sign_1():

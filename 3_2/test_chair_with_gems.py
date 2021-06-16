@@ -1,4 +1,4 @@
-from modules.chair_with_gems import compare_chairs_weight
+from chair_with_gems import compare_chairs_weight
 
 
 def test_compare_chairs_weight_1():

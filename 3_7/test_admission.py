@@ -1,4 +1,4 @@
-from modules.admission import get_admission_fee_for_category, calculate_total_admission
+from admission import get_admission_fee_for_category, calculate_total_admission
 
 
 def test_get_admission_fee_for_category_1():

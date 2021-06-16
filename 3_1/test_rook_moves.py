@@ -1,4 +1,4 @@
-from modules.rook_moves import tell_if_rook_beats_another_rook
+from rook_moves import tell_if_rook_beats_another_rook
 
 
 def test_tell_if_rook_beats_another_rook_1():

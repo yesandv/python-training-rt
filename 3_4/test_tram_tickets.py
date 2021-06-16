@@ -1,4 +1,4 @@
-from modules.tram_tickets import verify_lucky_ticket, replace_lucky_ticket
+from tram_tickets import verify_lucky_ticket, replace_lucky_ticket
 
 
 def test_verify_lucky_ticket_1():

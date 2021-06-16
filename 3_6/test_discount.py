@@ -1,4 +1,4 @@
-from modules.discount import calculate_discount_on_geese
+from discount import calculate_discount_on_geese
 
 
 def test_calculate_discount_on_geese_1():

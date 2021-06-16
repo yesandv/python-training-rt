@@ -1,4 +1,4 @@
-from modules.currency_converter import exchange_rub_to_usd, exchange_usd_to_rub, currency_converter
+from currency_converter import exchange_rub_to_usd, exchange_usd_to_rub, currency_converter
 
 
 def test_exchange_rub_to_usd():

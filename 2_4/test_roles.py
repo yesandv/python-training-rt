@@ -1,4 +1,4 @@
-from modules.roles import role_list_to_str
+from roles import role_list_to_str
 
 
 def test_role_list_1():

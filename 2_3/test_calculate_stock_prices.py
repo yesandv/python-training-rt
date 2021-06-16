@@ -1,4 +1,4 @@
-from modules.calculate_stock_prices import calculate_stock_price, price_in_usd
+from calculate_stock_prices import calculate_stock_price, price_in_usd
 
 
 def test_calculate_stock_price_1():

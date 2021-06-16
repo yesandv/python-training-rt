@@ -1,4 +1,4 @@
-from modules.calculate_sleep_time import calculate_sleep_time, hh_mm_to_str
+from calculate_sleep_time import calculate_sleep_time, hh_mm_to_str
 
 
 def test_calculate_sleep_time_1():

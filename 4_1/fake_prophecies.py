@@ -1,7 +1,8 @@
 def turned_out_number(name, year_of_birth):
     turned_out_number_as_str = str(year_of_birth * 4)
-    turned_out_number_slice = turned_out_number_as_str[1:4]
-    turned_out_number = int(turned_out_number_slice[0]) + int(turned_out_number_slice[1]) + int(turned_out_number_slice[2])
+    turned_out_number = 0
+    for i in range(1, 4):
+        turned_out_number += int(turned_out_number_as_str[i])
     return turned_out_number
 
 
@@ -31,14 +32,14 @@ def get_prophecy(number):
         prophecy += "\nВы запишете курс «Python для начинающих»!"
 
     if prophecy == "":
-        prophecy += "\nЯ не могу предсказать вашу судьбу."
+        prophecy = "\nЯ не могу предсказать вашу судьбу."
 
     return prophecy
 
 
 if __name__ == "__main__":
-    name = input("")
-    year = int(input())
+    name = input("Введите имя: ")
+    year = int(input("Введите год рождения: "))
     prefix = "Раз, два... Меркурий в четвертом доме... луна ушла... шесть — несчастье... вечер — семь..."
     num = turned_out_number(name, year)
     fake_prophecy = get_prophecy(num)

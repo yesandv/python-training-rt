@@ -1,11 +1,14 @@
-def test_str_to_list():
-    general_list = str_to_list([4, "Тюльпаны", 10, "Нарциссы", 5, "Крокусы", 11, "Примулы", 55])
-    assert general_list == [("Тюльпаны", 10), ("Нарциссы", 5), ("Крокусы", 11), ("Примулы", 55)]
+from flowers import list_to_list_of_tuples
+
+
+def test_list_to_list_of_tuples():
+    list_of_tuples = list_to_list_of_tuples([4, "Тюльпаны", 10, "Нарциссы", 5, "Крокусы", 11, "Примулы", 55])
+    assert list_of_tuples == [("Тюльпаны", 10), ("Нарциссы", 5), ("Крокусы", 11), ("Примулы", 55)]
 
 
 def test_sort_list_of_tuples():
-    list_of_tuples = sort_list_of_tuples([("Тюльпаны", 10), ("Нарциссы", 5), ("Крокусы", 11), ("Примулы", 55)])
-    assert list_of_tuples == [("Примулы", 55), ("Крокусы", 11), ("Тюльпаны", 10), ("Нарциссы", 5)]
+    sorted_list_of_tuples = sort_list_of_tuples([("Тюльпаны", 10), ("Нарциссы", 5), ("Крокусы", 11), ("Примулы", 55)])
+    assert sorted_list_of_tuples == [("Примулы", 55), ("Крокусы", 11), ("Тюльпаны", 10), ("Нарциссы", 5)]
 
 
 def test_list_of_tuples_to_list_of_flowers():

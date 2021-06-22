@@ -1,4 +1,4 @@
-from flowers import list_to_list_of_tuples
+from flowers import list_to_list_of_tuples, sort_list_of_tuples, list_of_tuples_to_list_of_flowers, find_frequent_flowers
 
 
 def test_list_to_list_of_tuples():

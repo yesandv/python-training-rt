@@ -1,7 +1,7 @@
 from possible_losses import split_list, split_list_to_list_of_tuples, calculate_min_sum_of_losses
 
 
-def test_split_list():
+def test_split_list_1():
     dish_price_list = split_list(["Селедка 10", "Треска 15", "Курица 5", "Индейка 10",
                                   "Заяц 11", "Волк 25", "Рис 1", "Гречка 1",
                                   "Мороженое 5", "Торт 100", "Балык 200", "Филейчик 250",
@@ -16,7 +16,7 @@ def test_split_list():
                                "Чай", 5, "Кофе", 1]
 
 
-def test_split_list_to_list_of_tuples():
+def test_split_list_to_list_of_tuples_1():
     list_of_tuples = split_list_to_list_of_tuples(["Селедка", 10, "Треска", 15, "Курица", 5, "Индейка", 10,
                                                    "Заяц", 11, "Волк", 25, "Рис", 1, "Гречка", 1,
                                                    "Мороженое", 5, "Торт", 100, "Балык", 200, "Филейчик", 250,
@@ -31,7 +31,7 @@ def test_split_list_to_list_of_tuples():
                               ("Чай", 5), ("Кофе", 1)]
 
 
-def test_calculate_min_sum_of_losses():
+def test_calculate_min_sum_of_losses_1():
     min_sum = calculate_min_sum_of_losses([("Селедка", 10), ("Треска", 15), ("Курица", 5), ("Индейка", 10),
                                            ("Заяц", 11), ("Волк", 25), ("Рис", 1), ("Гречка", 1),
                                            ("Мороженое", 5), ("Торт", 100), ("Балык", 200), ("Филейчик", 250),
@@ -39,3 +39,28 @@ def test_calculate_min_sum_of_losses():
                                            ("Лимон", 3), ("Лайм", 10), ("Печенье", 3), ("Сухари", 1),
                                            ("Чай", 5), ("Кофе", 1)])
     assert min_sum == 338
+
+
+def test_split_list_2():
+    dish_price_list = split_list(["Селедка 10", "Треска 15", "Курица 5", "Индейка 10",
+                                  "Заяц 11", "Волк 25", "Рис 1", "Гречка 1",
+                                  "Мороженое 5", "Торт 100"])
+    assert dish_price_list == ["Селедка", 10, "Треска", 15, "Курица", 5, "Индейка", 10,
+                               "Заяц", 11, "Волк", 25, "Рис", 1, "Гречка", 1,
+                               "Мороженое", 5, "Торт", 100]
+
+
+def test_split_list_to_list_of_tuples_2():
+    list_of_tuples = split_list_to_list_of_tuples(["Селедка", 10, "Треска", 15, "Курица", 5, "Индейка", 10,
+                                                   "Заяц", 11, "Волк", 25, "Рис", 1, "Гречка", 1,
+                                                   "Мороженое", 5, "Торт", 100])
+    assert list_of_tuples == [("Селедка", 10), ("Треска", 15), ("Курица", 5), ("Индейка", 10),
+                              ("Заяц", 11), ("Волк", 25), ("Рис", 1), ("Гречка", 1),
+                              ("Мороженое", 5), ("Торт", 100)]
+
+
+def test_calculate_min_sum_of_losses_2():
+    min_sum = calculate_min_sum_of_losses([("Селедка", 10), ("Треска", 15), ("Курица", 5), ("Индейка", 10),
+                                           ("Заяц", 11), ("Волк", 25), ("Рис", 1), ("Гречка", 1),
+                                           ("Мороженое", 5), ("Торт", 100)])
+    assert min_sum == 20032

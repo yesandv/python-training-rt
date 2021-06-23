@@ -30,3 +30,17 @@ def calculate_min_sum_of_losses(list_of_tuples):
     if len(list_of_tuples) < 20:
         min_sum += 20000
     return min_sum
+
+
+if __name__ == "__main__":
+    general_list = []
+    number_of_orders = int(input())
+    for k in range(number_of_orders):
+        dish_price_1 = input()
+        dish_price_2 = input()
+        general_list.append(dish_price_1)
+        general_list.append(dish_price_2)
+    dish_price_list = split_list(general_list)
+    dish_price_tuples = split_list_to_list_of_tuples(dish_price_list)
+    min_sum = calculate_min_sum_of_losses(dish_price_tuples)
+    print(min_sum)

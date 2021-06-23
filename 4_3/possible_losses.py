@@ -16,3 +16,15 @@ def split_list_to_list_of_tuples(dish_price_list):
         dish_price = (dishes[i], prices[i])
         list_of_tuples.append(dish_price)
     return list_of_tuples
+
+
+def calculate_min_sum_of_losses(list_of_tuples):
+    min_sum = 0
+    for i in range(0, len(list_of_tuples), 2):
+        price_1 = list_of_tuples[i][1]
+        price_2 = list_of_tuples[i + 1][1]
+        if price_1 >= price_2:
+            min_sum += price_2
+        else:
+            min_sum += price_1
+    return min_sum

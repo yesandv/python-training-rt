@@ -2,7 +2,7 @@ from consecutive_rises import find_number_of_consecutive_rises, calculate_length
 
 
 def test_find_number_of_consecutive_rises():
-	rises = find_number_of_consecutive_rises(900, [10, 13, 15, 7, 19, 15, 9, 15, 14])
+	rises = find_number_of_consecutive_rises([10, 13, 15, 7, 19, 15, 9, 15, 14])
 	assert rises == 3
 
 

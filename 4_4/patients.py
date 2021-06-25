@@ -19,14 +19,12 @@ def check_status_of_patients(id_status_list, patient_status, patient_id):
     return check_status
 
 
-def change_status_of_patients(id_status_list, patient_status, patient_id, level):
+def change_status_of_patients(id_status_list, patient_id, level):
     patient_id += -1
     if level == 1:
         id_status_list[patient_id] += 1
-        new_status = patient_status.get(id_status_list[patient_id])
     elif level == -1:
         id_status_list[patient_id] += -1
-        new_status = patient_status.get(id_status_list[patient_id])
 
 
 if __name__ == "__main__":

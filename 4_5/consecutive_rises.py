@@ -1,16 +1,17 @@
 def find_number_of_consecutive_rises(altitudes):
-    altitudes.insert(0, 0)
+    position = 0
 
-    cur_consecutive_rises = 0
+    consecutive_rises = 0
     max_consecutive_rises = 0
 
-    for i in range(len(altitudes) - 1):
-        if altitudes[i] < altitudes[i+1]:
-            cur_consecutive_rises += 1
-            if cur_consecutive_rises > max_consecutive_rises:
-                max_consecutive_rises = cur_consecutive_rises
+    for height in altitudes:
+        if position < height:
+            position = height
+            consecutive_rises += 1
+            if max_consecutive_rises < consecutive_rises:
+                max_consecutive_rises = consecutive_rises
         else:
-            cur_consecutive_rises = 0
+            consecutive_rises = 0
 
     return max_consecutive_rises
 

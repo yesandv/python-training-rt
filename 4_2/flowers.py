@@ -1,4 +1,5 @@
 def list_to_list_of_tuples(general_list):
+    # Not being used
     list_of_tuples = []
     del general_list[0]
     flowers = general_list[0:len(general_list):2]
@@ -30,15 +31,12 @@ def find_frequent_flowers(list_of_tuples):
 
 
 if __name__ == "__main__":
-    general_list = []
-    all_sort_of_flowers = int(input())
-    general_list.append(all_sort_of_flowers)
+    list_of_tuples = []
+    all_sort_of_flowers = int(input("Введите кол-во видов цветов: "))
     for k in range(all_sort_of_flowers):
-        flowers = input()
-        amount = int(input())
-        general_list.append(flowers)
-        general_list.append(amount)
-    list_of_tuples = list_to_list_of_tuples(general_list)
-    sorted_list = sort_list_of_tuples(list_of_tuples)
-    flowers = find_frequent_flowers(sorted_list)
+        flowers = input("Введите название цветка: ")
+        amount = int(input("Введите кол-во цветов: "))
+        flower_tuple = (flowers, amount)
+        list_of_tuples.append(flower_tuple)
+    flowers = find_frequent_flowers(list_of_tuples)
     print(flowers)

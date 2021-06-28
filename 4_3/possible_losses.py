@@ -34,10 +34,10 @@ def calculate_min_sum_of_losses(list_of_tuples):
 
 if __name__ == "__main__":
     general_list = []
-    number_of_orders = int(input())
+    number_of_orders = int(input("Укажите кол-во блюд: "))
     for k in range(number_of_orders):
-        dish_price_1 = input()
-        dish_price_2 = input()
+        dish_price_1 = input("Введите первое блюдо и его цену: ")
+        dish_price_2 = input("Введите второе блюдо и его цену: ")
         general_list.append(dish_price_1)
         general_list.append(dish_price_2)
     dish_price_list = split_list(general_list)

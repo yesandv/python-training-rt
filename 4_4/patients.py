@@ -51,4 +51,4 @@ if __name__ == "__main__":
         elif request == "Узнать статус":
             patient_id = int(input("Введите id пациента: "))
             check_status = check_status_of_patients(id_status_list, patient_status, patient_id)
-            print(check_status)
+            print(f'Статус пациента с ID {patient_id}: {check_status}.')

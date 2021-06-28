@@ -46,7 +46,7 @@ if __name__ == "__main__":
         if request == "Изменить статус":
             patient_id = int(input("Введите id пациента: "))
             level = int(input("Положительное или отрицательное изменение? "))
-            change_status_of_patients( id_status_list, patient_id, level )
+            change_status_of_patients(id_status_list, patient_id, level)
 
         elif request == "Узнать статус":
             patient_id = int(input("Введите id пациента: "))

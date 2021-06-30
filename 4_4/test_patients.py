@@ -1,7 +1,13 @@
-from patients import get_status_of_patients, change_status_of_patients
+from patients import get_initial_db_of_patients, get_status_of_patients, change_status_of_patients
 
 
-def test_check_status_of_patients():
+def test_get_initial_db_of_patients():
+    patients = []
+    patients_db = get_initial_db_of_patients(patients, 5)
+    assert patients_db == [1, 1, 1, 1, 1]
+
+
+def test_get_status_of_patients():
     patients_db = [1, 1, 1, 2, 1]
     status = get_status_of_patients(patients_db, 4)
     assert status == "Слегка болен"

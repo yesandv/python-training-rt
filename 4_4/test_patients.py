@@ -1,25 +1,24 @@
-from patients import get_initial_db_of_patients, get_status_of_patients, change_status_of_patients
+from patients import create_db_of_patients, get_status_of_patient, change_status_of_patient
 
 
-def test_get_initial_db_of_patients():
-    patients = []
-    patients_db = get_initial_db_of_patients(patients, 5)
+def test_create_db_of_patients():
+    patients_db = create_db_of_patients(5)
     assert patients_db == [1, 1, 1, 1, 1]
 
 
-def test_get_status_of_patients():
+def test_get_status_of_patient():
     patients_db = [1, 1, 1, 2, 1]
-    status = get_status_of_patients(patients_db, 4)
+    status = get_status_of_patient(patients_db, 4)
     assert status == "Слегка болен"
 
 
-def test_change_status_of_patients_1():
+def test_positive_change_status_of_patient():
     patients_db = [1, 1, 1, 2, 4]
-    change_status_of_patients(patients_db, 5, 1)
+    change_status_of_patient(patients_db, 5, 1)
     assert patients_db == [1, 1, 1, 2, 5]
 
 
-def test_change_status_of_patients_2():
+def test_negative_change_status_of_patient():
     patients_db = [1, 1, 1, 2, 5]
-    change_status_of_patients(patients_db, 1, -1)
+    change_status_of_patient(patients_db, 1, -1)
     assert patients_db == [0, 1, 1, 2, 5]

@@ -20,10 +20,9 @@ class UFO(Rocket):
         self.company = company
 
     def print_fields(self):
-        print(f'Год создания: {self.year}')
-        print(f'Пробег: {self.mileage}')
+        Rocket.print_fields(self)
         print(f'Марка: {self.brand}')
-        print(f'Владелец {self.company}')
+        print(f'Владелец: {self.company}')
 
 
 if __name__ == "__main__":

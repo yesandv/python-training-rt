@@ -15,8 +15,7 @@ class Rocket:
 class UFO(Rocket):
 
     def __init__(self, year, mileage, brand, company):
-        self.year = year
-        self.mileage = mileage
+        Rocket.__init__(self, year, mileage)
         self.brand = brand
         self.company = company
 

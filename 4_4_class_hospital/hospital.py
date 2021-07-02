@@ -5,7 +5,6 @@ class Hospital:
     def create(self, num_of_patients):
         for i in range(num_of_patients):
             self.__patients_db.append(1)
-        return self.__patients_db
 
     def get_status(self, patients_id):
         status_db = {0: "Тяжело болен", 1: "Болен", 2: "Слегка болен",

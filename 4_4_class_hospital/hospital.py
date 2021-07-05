@@ -1,30 +1,55 @@
+def create_hospital_db(num_of_patients):
+    hospital_db = []
+    for i in range(num_of_patients):
+        hospital_db.append(1)
+    return hospital_db
+
+
 class Hospital:
     def __init__(self, patients_db):
-        self.__patients_db = patients_db
-
-    def create(self, num_of_patients):
-        for i in range(num_of_patients):
-            self.__patients_db.append(1)
+        self._patients_db = patients_db
+        self._discharged_patients = 0
+        self._new_patients = 0
+        self._status_db = {0: "Тяжело болен", 1: "Болен", 2: "Близок к выздоровлению", 3: "Выписать через пару дней"}
 
     def get_status(self, patients_id):
-        status_db = {0: "Тяжело болен", 1: "Болен", 2: "Слегка болен",
-                     3: "Близок к выздоровлению", 4: "Выписать через пару дней", 5: "Выписан"}
-
         patient_index = patients_id - 1
-        status_code = self.__patients_db[patient_index]
-        status = status_db.get(status_code)
+        status_code = self._patients_db[patient_index]
+        status = self._status_db.get(status_code)
         return status
 
     def change_status(self, patients_id, level_up_or_down):
         patients_index = patients_id - 1
-        self.__patients_db[patients_index] += level_up_or_down
+        self._patients_db[patients_index] += level_up_or_down
+        if self._patients_db[patients_index] > 3:
+            self.remove_patient(patients_id)
+
+    def remove_patient(self, patients_id):
+        patients_index = patients_id - 1
+        del self._patients_db[patients_index]
+        self._discharged_patients += 1
+        print(f'Пациент с ID {patients_id} выписан.')
+
+    def add_patient(self, status_code = 1):
+        self._patients_db.append(status_code)
+        self._new_patients += 1
+
+    def sum_up(self):
+        print(f'Всего пациентов выписано за смену: {self._discharged_patients}.')
+        if self._new_patients > 0:
+            print(f'Принято новых пациентов: {self._new_patients}.')
+        print(f'Осталось пациентов в клинике: {len(self._patients_db)}.')
+        for status in self._status_db.keys():
+            if self._patients_db.count(status) > 0:
+                print(f'Пациентов с диагнозом «{self._status_db.get(status)}»: {self._patients_db.count(status)}.')
 
 
 if __name__ == "__main__":
-    patients_db = Hospital([])
-
     total_num_of_patients = int(input("Укажите сколько всего пациентов в клинике: "))
-    patients_db.create(total_num_of_patients)
+
+    hospital_db = create_hospital_db(total_num_of_patients)
+
+    patients_db = Hospital(hospital_db)
 
     number_of_requests = int(input("Укажите кол-во осмотров: "))
     for i in range(number_of_requests):
@@ -39,3 +64,12 @@ if __name__ == "__main__":
             patient_id = int(input("Введите id пациента: "))
             status = patients_db.get_status(patient_id)
             print(f'Статус пациента с ID {patient_id}: {status}.')
+
+        elif request == "Принять пациента":
+            status_code = input("Введите код диагноза нового пациента: ")
+            if status_code == "":
+                patients_db.add_patient()
+            else:
+                patients_db.add_patient(int(status_code))
+
+    patients_db.sum_up()

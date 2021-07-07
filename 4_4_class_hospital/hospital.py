@@ -22,26 +22,38 @@ class Hospital:
         patients_index = patients_id - 1
         self._patients_db[patients_index] += level_up_or_down
         if self._patients_db[patients_index] > 3:
-            self.remove_patient(patients_id)
+            self._remove_patient(patients_id)
 
-    def remove_patient(self, patients_id):
+    def _remove_patient(self, patients_id):
         patients_index = patients_id - 1
         del self._patients_db[patients_index]
         self._discharged_patients += 1
         print(f'Пациент с ID {patients_id} выписан.')
 
-    def add_patient(self, status_code = 1):
+    def add_patient(self, status_code=1):
         self._patients_db.append(status_code)
         self._new_patients += 1
 
-    def sum_up(self):
-        print(f'Всего пациентов выписано за смену: {self._discharged_patients}.')
-        if self._new_patients > 0:
-            print(f'Принято новых пациентов: {self._new_patients}.')
-        print(f'Осталось пациентов в клинике: {len(self._patients_db)}.')
+
+    def _get_statistics(self):
+        statistics_data_as_dict = {}
         for status in self._status_db.keys():
             if self._patients_db.count(status) > 0:
-                print(f'Пациентов с диагнозом «{self._status_db.get(status)}»: {self._patients_db.count(status)}.')
+                statistics_data_as_dict[self._status_db.get(status)] = self._patients_db.count(status)
+        return statistics_data_as_dict
+
+
+    def sum_up(self):
+        summary = []
+        if self._discharged_patients > 0:
+            summary.append(f'Всего пациентов выписано за смену: {self._discharged_patients}.')
+        if self._new_patients > 0:
+            summary.append(f'Принято новых пациентов: {self._new_patients}.')
+        summary.append(f'Осталось пациентов в клинике: {len(self._patients_db)}.')
+        statistics = self._get_statistics()
+        for status in statistics.keys():
+            summary.append(f'Пациентов с диагнозом «{status}»: {statistics.get(status)}.')
+        return "\n".join(summary)
 
 
 if __name__ == "__main__":
@@ -63,7 +75,7 @@ if __name__ == "__main__":
         elif request == "Узнать статус":
             patient_id = int(input("Введите id пациента: "))
             status = patients_db.get_status(patient_id)
-            print(f'Статус пациента с ID {patient_id}: {status}.')
+            print(f'Статус пациента с id {patient_id}: {status}.')
 
         elif request == "Принять пациента":
             status_code = input("Введите код диагноза нового пациента: ")
@@ -72,4 +84,4 @@ if __name__ == "__main__":
             else:
                 patients_db.add_patient(int(status_code))
 
-    patients_db.sum_up()
+    print(patients_db.sum_up())

@@ -34,14 +34,12 @@ class Hospital:
         self._patients_db.append(status_code)
         self._new_patients += 1
 
-
     def _get_statistics(self):
         statistics_data_as_dict = {}
         for status in self._status_db.keys():
             if self._patients_db.count(status) > 0:
                 statistics_data_as_dict[self._status_db.get(status)] = self._patients_db.count(status)
         return statistics_data_as_dict
-
 
     def sum_up(self):
         summary = []

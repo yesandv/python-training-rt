@@ -62,7 +62,7 @@ def test_add_patient_3():
     assert patients_db._new_patients == 2
 
 
-def test_sum_up():
+def test_sum_up_1():
     patients_db = Hospital([1, 2, 3, 0, 3, 2, 1])
     patients_db._remove_patient(4)
     patients_db.add_patient(0)
@@ -74,3 +74,11 @@ def test_sum_up():
                       "\nПациентов с диагнозом «Болен»: 2." \
                       "\nПациентов с диагнозом «Близок к выздоровлению»: 2." \
                       "\nПациентов с диагнозом «Выписать через пару дней»: 2."
+
+
+def test_sum_up_2():
+    patients_db = Hospital([1, 1, 3])
+    summary = patients_db.sum_up()
+    assert summary == "Осталось пациентов в клинике: 3." \
+                      "\nПациентов с диагнозом «Болен»: 2." \
+                      "\nПациентов с диагнозом «Выписать через пару дней»: 1."
